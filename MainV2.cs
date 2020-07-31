@@ -1017,6 +1017,8 @@ namespace MissionPlanner
 
             // save config to test we have write access
             SaveConfig();
+
+			UAS4STEMCompetition.MissionState.Initialize();
         }
 
         void cmb_sysid_Click(object sender, EventArgs e)
@@ -1293,7 +1295,7 @@ namespace MissionPlanner
             MyView.ShowScreen("FlightData");
         }
 
-        private void MenuFlightPlanner_Click(object sender, EventArgs e)
+        public void MenuFlightPlanner_Click(object sender, EventArgs e)
         {
             MyView.ShowScreen("FlightPlanner");
         }

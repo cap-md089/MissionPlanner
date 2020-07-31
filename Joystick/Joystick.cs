@@ -226,6 +226,22 @@ namespace MissionPlanner.Joystick
                 {
                 }
             }
+            else
+			{
+                /**
+                 * Provide default files for the UAS4STEM competition
+                 */
+                try
+				{
+                    File.Copy("joystickaxisArduCopter2.xml", this.joystickconfigaxis);
+                    File.Copy("joystickbuttonsArduCopter2.xml", this.joystickconfigbutton);
+
+                    loadconfig(joystickconfigbutton, joystickconfigaxis);
+				}
+                catch
+				{
+				}
+			}
         }
 
         public void saveconfig()
@@ -250,7 +266,7 @@ namespace MissionPlanner.Joystick
         }
 
         JoyChannel[] JoyChannels = new JoyChannel[20]; // we are base 1
-        JoyButton[] JoyButtons = new JoyButton[128]; // base 0
+        public JoyButton[] JoyButtons = new JoyButton[128]; // base 0
 
         public static IList<DeviceInstance> getDevices()
         {

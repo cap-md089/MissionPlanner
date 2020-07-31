@@ -478,9 +478,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         private void BUT_Joystick_Click(object sender, EventArgs e)
         {
-            Form joy = new JoystickSetup();
-            ThemeManager.ApplyThemeTo(joy);
-            joy.Show();
+			JoystickSetup.ShowForm();
         }
 
         private void CMB_distunits_SelectedIndexChanged(object sender, EventArgs e)
