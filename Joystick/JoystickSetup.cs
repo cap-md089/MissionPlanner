@@ -11,6 +11,18 @@ namespace MissionPlanner.Joystick
 {
     public partial class JoystickSetup : Form
     {
+		private static Form instance;
+
+		public static void ShowForm() {
+			if (instance != null) {
+				instance.BringToFront();
+			} else {
+				instance = new JoystickSetup();
+				Utilities.ThemeManager.ApplyThemeTo(instance);
+				instance.Show();
+			}
+		}
+
         bool startup = true;
 
         int noButtons = 0;
@@ -493,5 +505,9 @@ namespace MissionPlanner.Joystick
         {
             MainV2.joystick.manual_control = chk_manualcontrol.Checked;
         }
-    }
+
+		private void JoystickSetup_FormClosing(object sender, FormClosingEventArgs e) {
+			instance = null;
+		}
+	}
 }

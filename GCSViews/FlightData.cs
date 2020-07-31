@@ -493,6 +493,10 @@ namespace MissionPlanner.GCSViews
             {
                 setQuickViewRowsCols(Settings.Instance["quickViewCols"], Settings.Instance["quickViewRows"]);
             }
+            else
+			{
+                setQuickViewRowsCols("2", "3");
+			}
 
             for (int f = 1; f < 30; f++)
             {
@@ -2033,6 +2037,13 @@ namespace MissionPlanner.GCSViews
             //Galt;
             //Gheading;
             //attitudeIndicatorInstrumentControl1;
+        }
+
+        public override void Refresh()
+        {
+            base.Refresh();
+
+            uas4stemMenu.Initialize();
         }
 
         private void CB_tuning_CheckedChanged(object sender, EventArgs e)
