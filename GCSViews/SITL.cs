@@ -229,7 +229,7 @@ namespace MissionPlanner.GCSViews
 
             if (await Download.getFilefromNetAsync(
                 "https://raw.githubusercontent.com/ArduPilot/ardupilot/master/Tools/autotest/pysim/vehicleinfo.py",
-                sitldirectory + "vehicleinfo.py") || File.Exists(sitldirectory + "vehicleinfo.py"))
+                sitldirectory + "vehicleinfo.py") || File.Exists(sitldirectory + "vehicleinfo.py") )
             {
                 cleanupJson(sitldirectory + "vehicleinfo.py");
 
@@ -296,6 +296,7 @@ namespace MissionPlanner.GCSViews
             var match = BraceMatch(content, '{', '}');
 
             match = Regex.Replace(match, @"#.*", "");
+            match = Regex.Replace(match, @"True,", "true,");
 
             File.WriteAllText(filename, match);
         }
